@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "59970330314",
+    "project_id": "jenosize-test-f2f93",
+    "storage_bucket": "jenosize-test-f2f93.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59970330314:android:0459fa58adab8bda17de33",
+        "android_client_info": {
+          "package_name": "com.example.jenosize"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "59970330314-kfq28f788m7565t4jf0v5cfshi7stjq4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jenosize",
+            "certificate_hash": "ed917db5717efbe2d4ef52a060d3a9beceb23ee2"
+          }
+        },
+        {
+          "client_id": "59970330314-7tf33a5aaab7bujeahjo4q5i0rrl4env.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgpQ0UjrpLBmjWYsChpFR01ZnMG1rln2U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "59970330314-7tf33a5aaab7bujeahjo4q5i0rrl4env.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
