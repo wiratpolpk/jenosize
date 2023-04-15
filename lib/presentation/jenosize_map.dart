@@ -54,20 +54,7 @@ class _JenosizeMapState extends State<JenosizeMap> {
                 markers[const MarkerId('Jenosize')] = marker;
               });
             }),
-        // floatingActionButton: FloatingActionButton.extended(
-        //   onPressed: () {
-        //     goToJenosize();
-        //   },
-        //   label: const Text("Go to Jenosize"),
-        //   icon: const Icon(Icons.directions_walk),
-        // ),
-        // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
-
-  // Future<void> goToJenosize() async {
-  //   final GoogleMapController controller = await _controller.future;
-  //   controller.animateCamera(CameraUpdate.newCameraPosition(targetPosition));
-  // }
 }

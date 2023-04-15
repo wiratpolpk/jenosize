@@ -20,16 +20,11 @@ class RestaurantSearch extends StatefulWidget {
 }
 
 class _RestaurantSearchState extends State<RestaurantSearch> {
-  // static const nearbyLat = 13.894002837003686;
-  // static const nearbyLng = 100.51634173931413;
-  // static const apiKey = 'AIzaSyCeiXutMgI_F-T7n5dSqNGcxrkvXQZ0UZU';
   late String _heading;
   late List<Place> _placesList;
   final List<Place> _suggestedList = [];
-  // int _calls = 0;
 
   final TextEditingController _searchController = TextEditingController();
-  // Timer? _throttle;
   var uuid = const Uuid();
   String? _sessionToken;
 
@@ -55,10 +50,6 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
       });
     }
     getLocationResults(_searchController.text);
-    // if (_throttle?.isActive ?? false) _throttle?.cancel();
-    // _throttle = Timer(const Duration(milliseconds: 500), () {
-    //   getLocationResults(_searchController.text);
-    // });
   }
 
   void getLocationResults(String input) async {
@@ -71,15 +62,12 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
 
     String baseURL =
         'https://maps.googleapis.com/maps/api/place/autocomplete/json';
-    // String type = '(regions)';
     String type = 'restaurant';
     String request =
         '$baseURL?input=$input&language=th&location=13.894002837003686%2C100.51634173931413&radius=500&key=$PLACE_API_KEY&type=$type&_sessiontoken=$_sessionToken';
     Response response = await Dio().get(request);
 
     final predictions = response.data['predictions'];
-
-    // print(predictions);
 
     List<Place> displayResults = [];
 
@@ -92,7 +80,6 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
     setState(() {
       _heading = "ผลการค้นหา";
       _placesList = displayResults;
-      // _calls++;
     });
   }
 
@@ -100,7 +87,6 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
     String placeImgRequest =
         'https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&language=th&fields=photo&key=$PLACE_API_KEY&sessiontoken=$_sessionToken';
     Response placeDetails = await Dio().get(placeImgRequest);
-    // print('place details: ${placeDetails.data["result"]["name"]}');
     return placeDetails.data?["result"]?["photos"]?[0]["photo_reference"];
   }
 
@@ -108,7 +94,6 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
     String placeNameRequest =
         'https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&language=th&fields=name&key=$PLACE_API_KEY&sessiontoken=$_sessionToken';
     Response placeDetails = await Dio().get(placeNameRequest);
-    // print('place details: ${placeDetails.data["result"]["name"]}');
     return placeDetails.data?["result"]["name"];
   }
 
@@ -116,14 +101,12 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
     String placeAddressRequest =
         'https://maps.googleapis.com/maps/api/place/details/json?place_id=$placeId&language=th&fields=formatted_address%2Cformatted_phone_number&key=$PLACE_API_KEY&sessiontoken=$_sessionToken';
     Response placeDetails = await Dio().get(placeAddressRequest);
-    // print('place details: ${placeDetails.data["result"]["name"]}');
     String? address = placeDetails.data?["result"]["formatted_address"];
     String? phone =
         placeDetails.data?["result"]["formatted_phone_number"] == null
             ? ""
             : "โทร: ${placeDetails.data?["result"]["formatted_phone_number"]}";
     String details = "รายละเอียด: $address $phone";
-    // print('detail addr: $phone');
     return details;
   }
 
@@ -151,7 +134,6 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
         endDrawer: myDrawer(context),
         body: Column(
           children: <Widget>[
-            // Text("API calls: $_calls"),
             Padding(
               padding: const EdgeInsets.all(30.0),
               child: TextField(
@@ -205,7 +187,6 @@ class _RestaurantSearchState extends State<RestaurantSearch> {
                   future: getLocationPhotoRef(_placesList[index].placeId),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      // print('photo: ${snapshot.data}');
                       return Column(
                         children: <Widget>[
                           SizedBox(

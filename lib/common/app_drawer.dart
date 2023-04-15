@@ -22,7 +22,6 @@ Widget myDrawer(BuildContext context) {
                           MaterialPageRoute(
                               builder: (context) => const HomePage()));
                     }),
-
                 ListTile(
                     leading: const Icon(Icons.shop),
                     title: const Text("ค้นหาร้านอาหาร"),
@@ -33,7 +32,6 @@ Widget myDrawer(BuildContext context) {
                           MaterialPageRoute(
                               builder: (context) => const RestaurantSearch()));
                     }),
-
                 ListTile(
                     leading: const Icon(Icons.search),
                     title: const Text("แผนที่ บริษัท Jenosize"),
@@ -44,8 +42,6 @@ Widget myDrawer(BuildContext context) {
                           MaterialPageRoute(
                               builder: (context) => const JenosizeMap()));
                     })
-
-                //add more drawer menu here
               ],
             ))),
   );
